@@ -1,3 +1,12 @@
+body {
+  background: linear-gradient(
+    89deg,
+    rgb(21, 74, 189) 0.1%,
+    rgb(26, 138, 211) 51.5%,
+    rgb(72, 177, 234) 100.2%
+  );
+}
+
 .game {
   text-align: center;
   display: flex;
@@ -17,7 +26,13 @@
 }
 
 .card {
+  border: 2px solid black;
   width: 7rem;
   height: 7rem;
-  background-color: red;
+  background-color: rgb(63, 118, 221);
+}
+
+.logo {
+  width: 50%;
+  height: 100%;
 }

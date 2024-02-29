@@ -35,7 +35,6 @@ export default function App() {
           }
           return card
         }))
-
         resetTurn()
       }
       setTimeout(() => resetTurn(), 1000)
@@ -44,7 +43,7 @@ export default function App() {
   }, [choiceOne, choiceTwo])
 
   useEffect(() => {
-    const previousCards = [...value]
+    const previousCards = [...value].sort(() => Math.random() - 0.5)
     setCards([...previousCards])
   }, [])
 

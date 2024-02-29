@@ -6,6 +6,8 @@ Welcome to the Memory Game! This game is a fun and interactive way to test your 
 
 Project: [https://github.com/mzahmd/memory-game](https://github.com/mzahmd/memory-game)
 
+Live: [https://memory-game-cyan-theta.vercel.app](https://memory-game-cyan-theta.vercel.app)
+
 The Memory Game consists of a grid of facedown cards. Each card has a number, and there are two cards with the same numbers. Your task is to find pairs of cards with the same numbers by flipping them over one by one. The game ends when all pairs of cards have been found.
 
 

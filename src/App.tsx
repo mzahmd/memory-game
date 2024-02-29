@@ -28,6 +28,13 @@ export default function App() {
     setDisabled(false)
   }
 
+  function start () {
+    const previousCards = [...value].sort(() => Math.random() - 0.5)
+    setCards([...previousCards])
+    resetTurn()
+    setTurns(0)
+  }
+
   useEffect(() => {
     if (choice.choiceOne && choice.choiceTwo) {
       setDisabled(true)
@@ -46,15 +53,15 @@ export default function App() {
   }, [choice.choiceOne, choice.choiceTwo])
 
   useEffect(() => {
-    const previousCards = [...value].sort(() => Math.random() - 0.5)
-    setCards([...previousCards])
+    start()
   }, [])
+
 
   return (
     <div className="game">
       <h1>Memory Game</h1>
       <Board cards={cards} handleClick={handleClick} choiceOne={choice.choiceOne} choiceTwo={choice.choiceTwo} />
-      <Footer turns={turns} />
+      <Footer turns={turns} handleClick={start}/>
     </div>
   )
 }

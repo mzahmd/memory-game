@@ -1,30 +1,19 @@
-# React + TypeScript + Vite
+## 🎮  Memory Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the Memory Game! This game is a fun and interactive way to test your memory and concentration skills by finding matching pairs of cards.
 
-Currently, two official plugins are available:
+## 💡 Game Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project: [https://github.com/mzahmd/memory-game](https://github.com/mzahmd/memory-game)
 
-## Expanding the ESLint configuration
+The Memory Game consists of a grid of facedown cards. Each card has a number, and there are two cards with the same numbers. Your task is to find pairs of cards with the same numbers by flipping them over one by one. The game ends when all pairs of cards have been found.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-- Configure the top-level `parserOptions` property like this:
+## 🚦 Running the Project
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+To run the project in your local environment, follow these steps:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository to your local machine.
+2. Run `npm install` in the project directory to install the required dependencies.
+3. Run `npm run dev` to get the project started.
+4. Open [http://localhost:5173](http://localhost:5173) (or the address shown in your console) in your web browser to view the app.

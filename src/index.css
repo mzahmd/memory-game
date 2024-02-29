@@ -17,7 +17,7 @@ body {
 .board {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .card {
@@ -26,8 +26,8 @@ body {
   align-items: center;
   background-color: rgb(63, 118, 221);
   border: 1px solid black;
-  width: 7rem;
-  height: 7rem;
+  width: 5rem;
+  height: 5rem;
 }
 
 .card-inner {
@@ -38,7 +38,6 @@ body {
   transform-style: preserve-3d;
 }
 
-/* .card:hover .card-inner, */
 .flip-container .flip {
   transform: rotateY(180deg);
 }
@@ -54,8 +53,7 @@ body {
 }
 
 .card-back {
-  /* background-color: dodgerblue; */
-  background-color: red;
+  background-color: dodgerblue;
   color: white;
   transform: rotateY(180deg);
 }

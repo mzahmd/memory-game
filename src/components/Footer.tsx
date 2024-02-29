@@ -1,5 +1,9 @@
-export default function Footer() {
+interface Props {
+  turns: number
+}
+
+export default function Footer({ turns }: Props) {
   return (
-    <h1> 1 Moves</h1>
+    <h1> {turns} Moves</h1>
   )
 }

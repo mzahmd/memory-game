@@ -1,16 +1,17 @@
 // import Board from "./components/Board"
 import Footer from "./components/Footer"
-
-import { useEffect, useState } from "react"
+import Card from "./components/Card"
 import value from "./data/value.json"
 
+import { useEffect, useState } from "react"
+
 import "./index.css"
-import Card from "./components/Card"
 
 export default function App() {
   const [cards, setCards] = useState([{ value: 0, id: 0, matched: false }])
   const [choiceOne, setChoiceOne] = useState<{ id: number; value: number } | null>(null)
   const [choiceTwo, setChoiceTwo] = useState<{ id: number; value: number } | null>(null)
+  const [turns, setTurns] = useState(0)
   const [disabled, setDisabled] = useState(false)
 
   function handleClick(card: { id: number, value: number }) {
@@ -28,6 +29,7 @@ export default function App() {
   useEffect(() => {
     if (choiceOne && choiceTwo) {
       setDisabled(true)
+      setTurns(prevTurns => prevTurns + 1)
       if (choiceOne.value === choiceTwo.value) {
         setCards(prevCards => prevCards.map((card) => {
           if (card.id === choiceOne.id || card.id === choiceTwo.id) {
@@ -57,7 +59,7 @@ export default function App() {
           return <Card key={card.id} value={card.value} flipped={flipped} card={card} handleClick={handleClick} />
         })}
       </div>
-      <Footer />
+      <Footer turns={turns} />
     </div>
   )
 }

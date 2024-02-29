@@ -11,22 +11,23 @@ export default function App() {
   const [cards, setCards] = useState([{ value: 0, id: 0, matched: false }])
   const [choiceOne, setChoiceOne] = useState<{ id: number; value: number } | null>(null)
   const [choiceTwo, setChoiceTwo] = useState<{ id: number; value: number } | null>(null)
+  const [disabled, setDisabled] = useState(false)
 
   function handleClick(card: { id: number, value: number }) {
-    if (choiceOne) {
-      setChoiceTwo(card)
-    } else {
-      setChoiceOne(card)
+    if (!disabled) {
+      choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
     }
   }
 
   function resetTurn() {
     setChoiceOne(null);
     setChoiceTwo(null);
+    setDisabled(false)
   }
 
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      setDisabled(true)
       if (choiceOne.value === choiceTwo.value) {
         setCards(prevCards => prevCards.map((card) => {
           if (card.id === choiceOne.id || card.id === choiceTwo.id) {
@@ -53,7 +54,8 @@ export default function App() {
       {/* <Board cards={cards} handleClick={handleClick} flipped={false} /> */}
       <div className="board">
         {cards.map((card) => {
-          return <Card key={card.id} value={card.value} flipped={choiceOne?.id === card.id || choiceTwo?.id === card.id || card.matched} card={card} handleClick={handleClick} />
+          const flipped = choiceOne?.id === card.id || choiceTwo?.id === card.id || card.matched
+          return <Card key={card.id} value={card.value} flipped={flipped} card={card} handleClick={handleClick} />
         })}
       </div>
       <Footer />

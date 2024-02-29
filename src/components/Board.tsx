@@ -1,16 +1,24 @@
 import Card from "./Card"
 
-interface Props {
-  cards: number[]
+export interface ICard {
+  id: number,
+  value: number,
+  matched: boolean
 }
 
-export default function Board({ cards }: Props) {
-  console.log(cards);
-  
+
+interface Props {
+  cards: ICard[]
+  flipped: boolean
+  handleClick: (card: ICard) => void
+}
+
+export default function Board({ cards, flipped, handleClick }: Props) {
+
   return (
     <div className="board">
       {cards.map((card) => {
-        return <Card key={card} value={card}/>
+        return <Card key={card.id} value={card.value} flipped={flipped} card={card} handleClick={handleClick} />
       })}
     </div>
   )

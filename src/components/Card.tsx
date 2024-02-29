@@ -1,21 +1,19 @@
-import { useState } from "react"
 import react from "../assets/react.svg"
+import { ICard } from "./Board"
 
 interface Props {
   value: number
+  flipped: boolean
+  card: ICard
+  handleClick: (card: ICard) => void
 }
 
-export default function Card({ value }: Props) {
-  const [flip, setFlip] = useState(false)
-
-  function handleClick() {
-    setFlip(!flip)
-  }
+export default function Card({ value, flipped, card, handleClick }: Props) {
 
   return (
     <>
-      <div className="card" onClick={handleClick}>
-        <div className="card-inner">
+      <div className={flipped ? "flip-container card" : "card"} onClick={() => handleClick(card)}>
+        <div className={flipped ? "flip card-inner" : "card-inner"}>
           <div className="card-front">
             <img src={react} />
           </div>
@@ -25,6 +23,5 @@ export default function Card({ value }: Props) {
         </div>
       </div>
     </>
-
   )
 }

@@ -25,7 +25,7 @@ body {
   justify-content: center;
   align-items: center;
   background-color: rgb(63, 118, 221);
-  border: 2px solid black;
+  border: 1px solid black;
   width: 7rem;
   height: 7rem;
 }
@@ -34,12 +34,12 @@ body {
   position: relative;
   width: 100%;
   height: 100%;
-  text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
 
-.card:hover .card-inner {
+/* .card:hover .card-inner, */
+.flip-container .flip {
   transform: rotateY(180deg);
 }
 
@@ -54,7 +54,8 @@ body {
 }
 
 .card-back {
-  background-color: dodgerblue;
+  /* background-color: dodgerblue; */
+  background-color: red;
   color: white;
   transform: rotateY(180deg);
 }

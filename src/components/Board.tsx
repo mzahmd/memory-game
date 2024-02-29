@@ -1,32 +1,17 @@
 import Card from "./Card"
 
-export default function Board() {
+interface Props {
+  cards: number[]
+}
+
+export default function Board({ cards }: Props) {
+  console.log(cards);
+  
   return (
-    <div className="game-board">
-      <div className="board-row">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
-      <div className="board-row">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
-      <div className="board-row">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
-      <div className="board-row">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+    <div className="board">
+      {cards.map((card) => {
+        return <Card key={card} value={card}/>
+      })}
     </div>
   )
 }

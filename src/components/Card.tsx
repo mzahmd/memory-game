@@ -1,11 +1,11 @@
 import react from "../assets/react.svg"
-import { ICard } from "./Board"
+import { ICardMatched } from "../interfaces/CardMatched"
 
 interface Props {
   value: number
   flipped: boolean
-  card: ICard
-  handleClick: (card: ICard) => void
+  card: ICardMatched
+  handleClick: (card: ICardMatched) => void
 }
 
 export default function Card({ value, flipped, card, handleClick }: Props) {

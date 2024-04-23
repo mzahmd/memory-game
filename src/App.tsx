@@ -1,25 +1,18 @@
 import Board from "./components/Board"
 import Footer from "./components/Footer"
+
+import { ICardMatched } from "./interfaces/CardMatched"
+import { ICardChoice } from "./interfaces/CardChoice"
+
 import value from "./data/value.json"
 
 import { useEffect, useState } from "react"
 
 import "./index.css"
 
-interface CardChoice {
-  choiceOne: { id: number; value: number } | null
-  choiceTwo: { id: number; value: number } | null
-}
-
-interface CardMatched {
-  id: number,
-  value: number,
-  matched: boolean
-}
-
 export default function App() {
-  const [cards, setCards] = useState<CardMatched[]>([])
-  const [choice, setChoice] = useState<CardChoice>({} as CardChoice)
+  const [cards, setCards] = useState<ICardMatched[]>([])
+  const [choice, setChoice] = useState<ICardChoice>({} as ICardChoice)
   const [turns, setTurns] = useState(0)
   const [disabled, setDisabled] = useState(false)
 
@@ -51,7 +44,7 @@ export default function App() {
   }
 
   function resetTurn() {
-    setChoice({} as CardChoice);
+    setChoice({} as ICardChoice);
     setDisabled(false)
   }
 

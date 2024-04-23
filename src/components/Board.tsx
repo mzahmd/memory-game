@@ -1,16 +1,12 @@
 import Card from "./Card"
 
-export interface ICard {
-  id: number,
-  value: number,
-  matched: boolean
-}
+import { ICardMatched } from "../interfaces/CardMatched";
 
 interface Props {
-  cards: ICard[]
+  cards: ICardMatched[]
   choiceOne: { id: number; value: number; } | null
   choiceTwo: { id: number; value: number; } | null
-  handleClick: (card: ICard) => void
+  handleClick: (card: ICardMatched) => void
 }
 
 export default function Board({ cards, choiceOne, choiceTwo, handleClick }: Props) {

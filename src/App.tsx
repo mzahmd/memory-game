@@ -11,29 +11,17 @@ interface CardChoice {
   choiceTwo: { id: number; value: number } | null
 }
 
+interface CardMatched {
+  id: number,
+  value: number,
+  matched: boolean
+}
+
 export default function App() {
-  const [cards, setCards] = useState([{ value: 0, id: 0, matched: false }])
+  const [cards, setCards] = useState<CardMatched[]>([])
   const [choice, setChoice] = useState<CardChoice>({} as CardChoice)
   const [turns, setTurns] = useState(0)
   const [disabled, setDisabled] = useState(false)
-
-  function handleClick(card: { id: number, value: number }) {
-    if (!disabled && card != choice.choiceOne && card != choice.choiceTwo) {
-      choice.choiceOne ? setChoice({ ...choice, choiceTwo: card }) : setChoice({ ...choice, choiceOne: card })
-    }
-  }
-
-  function resetTurn() {
-    setChoice({} as CardChoice);
-    setDisabled(false)
-  }
-
-  function start () {
-    const previousCards = [...value].sort(() => Math.random() - 0.5)
-    setCards([...previousCards])
-    resetTurn()
-    setTurns(0)
-  }
 
   useEffect(() => {
     if (choice.choiceOne && choice.choiceTwo) {
@@ -56,12 +44,29 @@ export default function App() {
     start()
   }, [])
 
+  function handleClick(card: { id: number, value: number }) {
+    if (!disabled && card != choice.choiceOne && card != choice.choiceTwo) {
+      choice.choiceOne ? setChoice({ ...choice, choiceTwo: card }) : setChoice({ ...choice, choiceOne: card })
+    }
+  }
+
+  function resetTurn() {
+    setChoice({} as CardChoice);
+    setDisabled(false)
+  }
+
+  function start() {
+    const previousCards = [...value].sort(() => Math.random() - 0.5)
+    setCards([...previousCards])
+    resetTurn()
+    setTurns(0)
+  }
 
   return (
     <div className="game">
       <h1>Memory Game</h1>
       <Board cards={cards} handleClick={handleClick} choiceOne={choice.choiceOne} choiceTwo={choice.choiceTwo} />
-      <Footer turns={turns} handleClick={start}/>
+      <Footer turns={turns} handleClick={start} />
     </div>
   )
 }
